@@ -20,8 +20,8 @@ The main features:
 typedef unsigned short WORD;
 typedef unsigned char BYTE;
 typedef struct {
-	BYTE ascii;
-	BYTE attr;
+    BYTE ascii;
+    BYTE attr;
 } SYMBOL;
 
 // screen pointers (graphic & text regimes)
@@ -33,12 +33,12 @@ union REGS regs;
 
 // colors
 int _BLACK = 16,
-	_WHITE = 31,
-	_GREEN_BR = 72,
-	_GREEN_DK = 144,
-	_GREY_1 = 122,
-	_GREY_2 = 24,
-	_GREY_3 = 26;
+    _WHITE = 31,
+    _GREEN_BR = 72,
+    _GREEN_DK = 144,
+    _GREY_1 = 122,
+    _GREY_2 = 24,
+    _GREY_3 = 26;
 
 enum Tools { // tools
 	Point, Line, Rect, Circle, Eraser, Fill
@@ -189,17 +189,17 @@ void main() {
 			} else if (X >= 309 && X <= 317 && Y >= 1 && Y <= 9) {			// Quit
 				Quit = 1;
 			} else if ((X >= 6  && X <= 15 && Y >= 30 && Y <= 39) ||		// tool selection
-					 (X >= 6  && X <= 15 && Y >= 47 && Y <= 56) ||
-					 (X >= 18 && X <= 27 && Y >= 47 && Y <= 56) ||
-					 (X >= 30 && X <= 39 && Y >= 47 && Y <= 56) ||
-					 (X >= 6  && X <= 15 && Y >= 64 && Y <= 73) ||
-					 (X >= 18 && X <= 27 && Y >= 64 && Y <= 73)) {
+			    (X >= 6  && X <= 15 && Y >= 47 && Y <= 56) ||
+			    (X >= 18 && X <= 27 && Y >= 47 && Y <= 56) ||
+			    (X >= 30 && X <= 39 && Y >= 47 && Y <= 56) ||
+			    (X >= 6  && X <= 15 && Y >= 64 && Y <= 73) ||
+			    (X >= 18 && X <= 27 && Y >= 64 && Y <= 73)) {
 					 
 				changeTool = 1;
 				
 				if (X >= 6 && X <= 15 && Y >= 30 && Y <= 39) {			// Point
 					Tool = Point;
-				} else if (X >= 6 && X <= 15 && Y >= 47 && Y <= 56)	{	// Line
+				} else if (X >= 6 && X <= 15 && Y >= 47 && Y <= 56) {		// Line
 					Tool = Line;
 				} else if (X >= 18 && X <= 27 && Y >= 47 && Y <= 56) {		// Rectangle
 					Tool = Rect;
