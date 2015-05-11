@@ -152,18 +152,18 @@ void main() {
 			InvCursor(X, Y);
 			
 			// if the cursor in the area of button then select
-			DrawButtonNew( 	X >= 65  && X <= 83	 && Y >= 1 && Y <= 9 ? _GREEN_DK : _GREEN_BR);
+			DrawButtonNew( 	X >= 65  && X <= 83  && Y >= 1 && Y <= 9 ? _GREEN_DK : _GREEN_BR);
 			DrawButtonSave(	X >= 100 && X <= 118 && Y >= 1 && Y <= 9 ? _GREEN_DK : _GREEN_BR);
 			DrawButtonOpen(	X >= 135 && X <= 154 && Y >= 1 && Y <= 9 ? _GREEN_DK : _GREEN_BR);
 			DrawButtonQuit(	X >= 309 && X <= 317 && Y >= 1 && Y <= 9 ? _GREEN_DK : _GREEN_BR);
 			
-			DrawPoint(	X >= 6 	&& X <= 15 && Y >= 30 && Y <= 39 || Tool == Point	? _GREEN_DK : _GREEN_BR);
-			DrawLine(	X >= 6  && X <= 15 && Y >= 47 && Y <= 56 || Tool == Line 	? _GREEN_DK : _GREEN_BR);
-			DrawRect(	X >= 18 && X <= 27 && Y >= 47 && Y <= 56 || Tool == Rect 	? _GREEN_DK : _GREEN_BR);
-			DrawCircle(	X >= 30 && X <= 39 && Y >= 47 && Y <= 56 || Tool == Circle 	? _GREEN_DK : _GREEN_BR);
-			DrawEraser(	X >= 6  && X <= 15 && Y >= 64 && Y <= 73 || Tool == Eraser 	? _GREEN_DK : _GREEN_BR);
-			DrawFill(  	X >= 18 && X <= 27 && Y >= 64 && Y <= 73 || Tool == Fill 	? _GREEN_DK : _GREEN_BR);
-			DrawToggle(	X >= 6  && X <= 31 && Y >= 96 && Y <= 102 ? _GREEN_DK : _GREEN_BR);
+			DrawPoint(  X >= 6  && X <= 15 && Y >= 30 && Y <= 39 || Tool == Point  ? _GREEN_DK : _GREEN_BR);
+			DrawLine(   X >= 6  && X <= 15 && Y >= 47 && Y <= 56 || Tool == Line   ? _GREEN_DK : _GREEN_BR);
+			DrawRect(   X >= 18 && X <= 27 && Y >= 47 && Y <= 56 || Tool == Rect   ? _GREEN_DK : _GREEN_BR);
+			DrawCircle( X >= 30 && X <= 39 && Y >= 47 && Y <= 56 || Tool == Circle ? _GREEN_DK : _GREEN_BR);
+			DrawEraser( X >= 6  && X <= 15 && Y >= 64 && Y <= 73 || Tool == Eraser ? _GREEN_DK : _GREEN_BR);
+			DrawFill(   X >= 18 && X <= 27 && Y >= 64 && Y <= 73 || Tool == Fill   ? _GREEN_DK : _GREEN_BR);
+			DrawToggle( X >= 6  && X <= 31 && Y >= 96 && Y <= 102 ? _GREEN_DK : _GREEN_BR);
 			
 			drRect(65, 190, 183, 198, 1, X >= 65 && X <= 183 && Y >= 190 && Y <= 198 ? _GREEN_DK : _GREEN_BR);
 		}
@@ -175,20 +175,20 @@ void main() {
 		if (regs.x.bx == 0x0001) {
 			if (X >= 65 && X <= 83 && Y >= 1 && Y <= 9) {				// New
 				DrawCanvasPanel(_WHITE);
-			} else if (X >= 100 && X <= 118 && Y >= 1 && Y <= 9) {		// Save
+			} else if (X >= 100 && X <= 118 && Y >= 1 && Y <= 9) {			// Save
 				InvCursor(X, Y);
 				TextRegime('s');
 				InvCursor(X, Y);
-			} else if (X >= 135 && X <= 154 && Y >= 1 && Y <= 9) {		// Open
+			} else if (X >= 135 && X <= 154 && Y >= 1 && Y <= 9) {			// Open
 				TextRegime('o');
 				DrawTopPanel();
 				DrawLowPanel();
 				DrawCurColor(glColor);
 				DrawToolsPanel();
 				InvCursor(X, Y);
-			} else if (X >= 309 && X <= 317 && Y >= 1 && Y <= 9) {		// Quit
+			} else if (X >= 309 && X <= 317 && Y >= 1 && Y <= 9) {			// Quit
 				Quit = 1;
-			} else if ((X >= 6  && X <= 15 && Y >= 30 && Y <= 39) ||	// tool selection
+			} else if ((X >= 6  && X <= 15 && Y >= 30 && Y <= 39) ||		// tool selection
 					 (X >= 6  && X <= 15 && Y >= 47 && Y <= 56) ||
 					 (X >= 18 && X <= 27 && Y >= 47 && Y <= 56) ||
 					 (X >= 30 && X <= 39 && Y >= 47 && Y <= 56) ||
@@ -201,23 +201,23 @@ void main() {
 					Tool = Point;
 				} else if (X >= 6 && X <= 15 && Y >= 47 && Y <= 56)	{	// Line
 					Tool = Line;
-				} else if (X >= 18 && X <= 27 && Y >= 47 && Y <= 56) {	// Rectangle
+				} else if (X >= 18 && X <= 27 && Y >= 47 && Y <= 56) {		// Rectangle
 					Tool = Rect;
-				} else if (X >= 30 && X <= 39 && Y >= 47 && Y <= 56) {	// Circle
+				} else if (X >= 30 && X <= 39 && Y >= 47 && Y <= 56) {		// Circle
 					Tool = Circle;
-				} else if (X >= 6 && X <= 15 && Y >= 64 && Y <= 73) {	// Eraser
+				} else if (X >= 6 && X <= 15 && Y >= 64 && Y <= 73) {		// Eraser
 					Tool = Eraser;
-				} else if (X >= 18 && X <= 27 && Y >= 64 && Y <= 73) {	// Fill
+				} else if (X >= 18 && X <= 27 && Y >= 64 && Y <= 73) {		// Fill
 					Tool = Fill;
 				}
-			} else if (X >= 7 && X <= 30 && Y >= 96 && Y <= 102) {		// Toggle
+			} else if (X >= 7 && X <= 30 && Y >= 96 && Y <= 102) {			// Toggle
 				changeTogVal = 1;
 				Toggle = X;
 				TogVal = (X - 1)/3 - 1;
-			} else if (X >= 66 && X <= 182 && Y >= 191 && Y <= 197) {	// Palette
+			} else if (X >= 66 && X <= 182 && Y >= 191 && Y <= 197) {		// Palette
 				glColor = X/3-6;
 				DrawCurColor(glColor);
-			} else if (X >= 47 && X <= 316 && Y >= 15 && Y <= 184) {	// clicked in canvas area
+			} else if (X >= 47 && X <= 316 && Y >= 15 && Y <= 184) {		// clicked in canvas area
 				// save cursor position & save file
 				InvCursor(X, Y);
 				
