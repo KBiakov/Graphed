@@ -485,7 +485,7 @@ void Ellipse(int CX,int CY, long int XRadius,long int YRadius, char glColor) {
 		EllipseError += YChange;
 		YChange += TwoASquare;
 		
-		if (2 * EllipseError+XChange > 0) {
+		if (2 * EllipseError + XChange > 0) {
 			 locX--;
 			 StoppingX -= TwoBSquare;
 			 EllipseError += XChange;
@@ -521,12 +521,12 @@ void Ellipse(int CX,int CY, long int XRadius,long int YRadius, char glColor) {
 }
 
 void drCircle(int x0, int y0, int radius1, int radius2, int Size, char Color) {
-	for (Size = Size - 1; Size >= 0; Size--)
+	for (Size = Size - 1; Size >= 0; Size--) {
 		Ellipse(x0, y0, radius1 - Size, radius2 - Size, Color);
+	}
 }
 
 void FloodFill(int x, int y, char Temp, char Color) {
-	// X >= 47 && X <= 316 && Y >= 15 && Y <= 184
 	int xL, xR, YY, i;
 	int xMax = 316, yMax = 184;
 	xL = xR = x;
@@ -684,7 +684,7 @@ void DrawTopPanel() {
 	FillRect(0, 0, 319, 10, _GREY_3);
 
 	for (y = 2; y < 9; y++) {
-		Pixel(2, y, _GREEN_BR); // _WHITE color?
+		Pixel(2, y, _GREEN_BR);
 	}
 	for (x = 3; x < 6; x++) {
 		Pixel(x, 2, _GREEN_BR);
