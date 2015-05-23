@@ -1,5 +1,5 @@
 # Graphed
-<b>Graphics Editor, May 2012<b>
+<b>Graphics Editor, May 2012</b>
 
 It is my implementation of graphic editor for DOS graphics mode.
 
