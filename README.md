@@ -18,5 +18,3 @@ This work does not pretend to be the best of the best editors for DOS, but in th
 <br>c) waiver of the built-in display graphics and use of the most <b>low-level</b> functions</br>
 
 Of course, there is something to strive for. In particular, the use of constants for common numerical values.
-
-Regards, Kirill Biakov.
